@@ -20,9 +20,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.DirectoryChooser;
 import javafx.util.StringConverter;
 import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 /**
  * Created by ${rudolfps} on 2017.01.26.
