@@ -12,10 +12,8 @@ public class MemoryGameFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add content to the window.
-        JPanel MemoryPanel = new MemoryPanel();
-        frame.add(MemoryPanel);
-
-//        frame.setSize(400,400);
+//        JPanel MemoryPanel = new MemoryPanel();
+//        frame.add(MemoryPanel);
 
         //Display the window.
         frame.setLocationRelativeTo(null);
