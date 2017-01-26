@@ -15,7 +15,6 @@
 hs_err_pid*
 
 .idea/
-
-
 /Hackathon2017SwingAndMiss.iml
 /images/arch/
+out/
