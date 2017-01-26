@@ -15,8 +15,6 @@ public class MemoryGameFrame {
 //        JPanel MemoryPanel = new MemoryPanel();
 //        frame.add(MemoryPanel);
 
-//        frame.setSize(400,400);
-
         //Display the window.
         frame.setLocationRelativeTo(null);
         frame.pack();
