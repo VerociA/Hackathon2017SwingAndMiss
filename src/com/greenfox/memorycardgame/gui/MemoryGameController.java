@@ -120,7 +120,8 @@ public final class MemoryGameController implements Initializable{
         /* and remove all image views */
         memoryCardGrid.getChildren().clear();
 
-        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).buildMemoryGame();
+//        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).buildMemoryGame();
+        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).numberOfPlayers((int)playerNumberSlider.getValue()).buildMemoryGame();
 
         /* since the number of images depends on the selected game level we remove all imageViews first */
         /* there is room for optimization :-) */
