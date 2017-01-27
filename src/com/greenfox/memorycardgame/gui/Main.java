@@ -17,7 +17,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("memory.fxml"));
         primaryStage.setTitle("Memory Game");
-        primaryStage.setScene(new Scene(root, 500, 600));
+        primaryStage.setScene(new Scene(root, 500, 800));
         primaryStage.show();
 
       /*  String musicFile = "retrogameboymusic.wav";     // For example

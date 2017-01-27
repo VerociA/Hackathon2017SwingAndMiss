@@ -216,6 +216,15 @@ public final class MemoryGameController implements Initializable{
         score2.setText(Integer.toString(0));
         score3.setText(Integer.toString(0));
         score4.setText(Integer.toString(0));
+        score1.setFont(Font.font(15.0));
+        score1l.setFont(Font.font(15.0));
+        score2.setFont(Font.font(15.0));
+        score2l.setFont(Font.font(15.0));
+        score3.setFont(Font.font(15.0));
+        score3l.setFont(Font.font(15.0));
+        score4.setFont(Font.font(15.0));
+        score3l.setFont(Font.font(15.0));
+
     }
 
 

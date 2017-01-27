@@ -1,3 +1,5 @@
+
+
 .background {
     -fx-background-color: #404040;
 }
@@ -38,6 +40,8 @@
     -fx-background-color: aqua ;
     -fx-text-fill: whitesmoke;
 }
+
+
 
 .table-view .column-header, .table-view .filler {
     -fx-size: 35;
@@ -150,4 +154,7 @@
     -fx-background-radius: 28px;
     -fx-background-color: -fx-focus-color;
     -fx-text-fill: #ffffff;
+
+
+
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="387.0" prefWidth="269.0" spacing="3" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController">
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="269.0" spacing="3" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController">
    <children>
       <Label prefHeight="27.0" prefWidth="129.0" text="MEMORY GAME" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -18,13 +19,16 @@
 
       <HBox alignment="CENTER" prefHeight="113.0" prefWidth="224.0" styleClass="label-bright" stylesheets="@DarkTheme.css">
           <children>
-            <Slider fx:id="playerNumberSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="60.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="background" stylesheets="@DarkTheme.css" value="1.0" />
+            <Slider fx:id="playerNumberSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="60.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="label-bright" stylesheets="@DarkTheme.css" value="1.0">
+               <effect>
+                  <ColorAdjust brightness="0.62" />
+               </effect></Slider>
          </children>
       </HBox>
-       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="191.0">
+       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="191.0" styleClass="background">
 
            <children>
-              <Slider fx:id="gameLevelSlider" prefHeight="38.0" prefWidth="157.0"   styleClass="label-bright" stylesheets="@DarkTheme.css">
+              <Slider fx:id="gameLevelSlider" prefHeight="38.0" prefWidth="157.0" styleClass="label-bright" stylesheets="@DarkTheme.css">
                   <min>4</min>
                   <max>8</max>
                   <value>6</value>
@@ -36,6 +40,9 @@
                   <showTickLabels>true</showTickLabels>
                   <snapToTicks>true</snapToTicks>
                   <minWidth>157.0</minWidth>
+               <effect>
+                  <ColorAdjust brightness="0.6" />
+               </effect>
               </Slider>
           </children>
        </HBox>
@@ -65,33 +72,33 @@
        <!--</GridPane>-->
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
           <children>
-              <Label fx:id="score1" text="0">
+              <Label fx:id="score1" text="0" textFill="WHITE">
                   <graphic>
-                      <Label fx:id="score1l" text="P1: " />
+                      <Label fx:id="score1l" text="P1: " textFill="WHITE" />
                   </graphic>
                   <HBox.margin>
                       <Insets left="20.0" right="20.0" />
                   </HBox.margin>
               </Label>
-              <Label fx:id="score2" text="0">
+              <Label fx:id="score2" text="0" textFill="WHITE">
                   <graphic>
-                      <Label fx:id="score2l" text="P2: " />
+                      <Label fx:id="score2l" text="P2: " textFill="WHITE" />
                   </graphic>
                   <HBox.margin>
                       <Insets left="20.0" right="20.0" />
                   </HBox.margin>
               </Label>
-              <Label fx:id="score3" text="0">
+              <Label fx:id="score3" text="0" textFill="WHITE">
                   <graphic>
-                      <Label fx:id="score3l" text="P3: " />
+                      <Label fx:id="score3l" text="P3: " textFill="WHITE" />
                   </graphic>
                   <HBox.margin>
                       <Insets left="20.0" right="20.0" />
                   </HBox.margin>
               </Label>
-              <Label fx:id="score4" text="0">
+              <Label fx:id="score4" text="0" textFill="WHITE">
                   <graphic>
-                      <Label fx:id="score4l" text="P4: " />
+                      <Label fx:id="score4l" text="P4: " textFill="WHITE" />
                   </graphic>
                   <HBox.margin>
                       <Insets left="20.0" right="20.0" />
