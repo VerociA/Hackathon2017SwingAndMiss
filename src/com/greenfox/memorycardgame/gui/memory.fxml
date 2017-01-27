@@ -60,8 +60,45 @@
    
        <GridPane fx:id="memoryCardGrid" alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
         </GridPane>
-       <GridPane fx:id="playerCountersGrid" alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
-       </GridPane>
+       <!--<GridPane fx:id="playerCountersGrid" alignment="CENTER" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">-->
+
+       <!--</GridPane>-->
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+          <children>
+              <Label fx:id="score1" text="0">
+                  <graphic>
+                      <Label fx:id="score1l" text="P1: " />
+                  </graphic>
+                  <HBox.margin>
+                      <Insets left="20.0" right="20.0" />
+                  </HBox.margin>
+              </Label>
+              <Label fx:id="score2" text="0">
+                  <graphic>
+                      <Label fx:id="score2l" text="P2: " />
+                  </graphic>
+                  <HBox.margin>
+                      <Insets left="20.0" right="20.0" />
+                  </HBox.margin>
+              </Label>
+              <Label fx:id="score3" text="0">
+                  <graphic>
+                      <Label fx:id="score3l" text="P3: " />
+                  </graphic>
+                  <HBox.margin>
+                      <Insets left="20.0" right="20.0" />
+                  </HBox.margin>
+              </Label>
+              <Label fx:id="score4" text="0">
+                  <graphic>
+                      <Label fx:id="score4l" text="P4: " />
+                  </graphic>
+                  <HBox.margin>
+                      <Insets left="20.0" right="20.0" />
+                  </HBox.margin>
+              </Label>
+          </children>
+      </HBox>
 
    </children>
 </VBox>

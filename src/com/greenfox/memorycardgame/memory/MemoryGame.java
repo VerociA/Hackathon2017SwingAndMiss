@@ -82,11 +82,5 @@ public final class MemoryGame {
         Collections.shuffle(memoryCards);
         logger.debug("created memory card pairs: " + numberOfPairs);
     }
-//    private void createPlayerCounters(int numberOfPlayers) {
-//        for (int i = 0; i < numberOfPlayers; i++) {
-//            playerCounters.add(new Label("Player" + i));
-//        }
-//
-//    }
 
 }
