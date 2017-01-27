@@ -46,6 +46,6 @@ public final class MemoryGameBuilder {
         logger.debug(String.format("creating new MemoryGame with path %s limited to %d pairs"
                 , this.imageFileProvider.getImageRootPath()
                 , this.maxNumberOfPairs));
-        return new MemoryGame(this.imageFileProvider, this.maxNumberOfPairs);
+        return new MemoryGame(this.imageFileProvider, this.maxNumberOfPairs, this.numberOfPlayers);
     }
 }
