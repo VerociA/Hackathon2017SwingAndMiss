@@ -18,6 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.DirectoryChooser;
 import javafx.util.StringConverter;
 import org.apache.log4j.Logger;
@@ -40,6 +42,8 @@ public final class MemoryGameController implements Initializable{
     ImageFileProvider fileProvider = new ImageFileProvider(".");
     MemoryGame memoryGame;
     Guess guess;
+    Label currentPlayer;
+    Label currentPlayerl;
 
     @FXML
     Slider playerNumberSlider;
@@ -58,6 +62,31 @@ public final class MemoryGameController implements Initializable{
 
     @FXML
     GridPane playerCountersGrid;
+
+    @FXML
+    Label score1;
+
+    @FXML
+    Label score2;
+
+    @FXML
+    Label score3;
+
+    @FXML
+    Label score4;
+
+
+    @FXML
+    Label score1l;
+
+    @FXML
+    Label score2l;
+
+    @FXML
+    Label score3l;
+
+    @FXML
+    Label score4l;
 
     @Override
     /**
@@ -87,9 +116,6 @@ public final class MemoryGameController implements Initializable{
                 return null;
             }
         });
-
-
-
     }
 
     /**
@@ -125,7 +151,8 @@ public final class MemoryGameController implements Initializable{
         memoryCardGrid.getChildren().clear();
 
         /* and remove all player counters */
-        playerCountersGrid.getChildren().clear();
+//        playerCountersGrid.getChildren().clear();
+        resetCounters();
 
 
 //        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).buildMemoryGame();
@@ -133,10 +160,26 @@ public final class MemoryGameController implements Initializable{
 
         /* since the number of images depends on the selected game level we remove all imageViews first */
         /* there is room for optimization :-) */
-        createImageViews(memoryGame.availableNumberOfCards());
-        logger.debug("created new memory game with number of cards: " + memoryGame.availableNumberOfCards());
-        createPlayerCounters((int)playerNumberSlider.getValue());
-        guess = new Guess();
+
+        /* we process the rest only if there are tiles to draw */
+        if (memoryGame.availableNumberOfCards() > 0 ){
+            createImageViews(memoryGame.availableNumberOfCards());
+            logger.debug("created new memory game with number of cards: " + memoryGame.availableNumberOfCards());
+//            createPlayerCounters((int)playerNumberSlider.getValue());
+            logger.debug("created player counters " + playerNumberSlider.getValue());
+            guess = new Guess();
+            currentPlayer = score1;
+            currentPlayerl = score1l;
+            currentPlayer.setFont(Font.font(30.0));
+            currentPlayerl.setFont(Font.font(30.0));
+        }
+    }
+
+    private void resetCounters() {
+        score1.setText(Integer.toString(0));
+        score2.setText(Integer.toString(0));
+        score3.setText(Integer.toString(0));
+        score4.setText(Integer.toString(0));
     }
 
 
@@ -165,12 +208,11 @@ public final class MemoryGameController implements Initializable{
             }
         }
     }
-    private void createPlayerCounters(int numberOfPlayers){
-        for (int i = 1; i < numberOfPlayers+1; i++) {
-            playerCountersGrid.add(new Label("P"+i),i,1);
-        }
-
-    }
+//    private void createPlayerCounters(int numberOfPlayers){
+//        for (int i = 1; i < numberOfPlayers+1; i++) {
+//            playerCountersGrid.add(new Label("P"+i),i,1);
+//        }
+//    }
 
     /**
      * the provider for the imageView click handler
@@ -208,15 +250,73 @@ public final class MemoryGameController implements Initializable{
                         memoryCardGrid.getChildren().get(guess.getFirstGuessIndex()).removeEventHandler(MouseEvent.MOUSE_CLICKED, imageViewClickEventHandler);
                         memoryCardGrid.getChildren().get(guess.getSecondGuessIndex()).removeEventHandler(MouseEvent.MOUSE_CLICKED, imageViewClickEventHandler);
                         guess = new Guess();
+                        increaseCurrentPlayerCounter(currentPlayer);
                     }
                     if (guess.isScrewed()) {
                         logger.info("no matching pair");
                         ((ImageView)memoryCardGrid.getChildren().get(guess.getFirstGuessIndex())).setImage(backSide);
                         ((ImageView)memoryCardGrid.getChildren().get(guess.getSecondGuessIndex())).setImage(backSide);
                         guess = new Guess();
+                        setNextPlayer();
                     }
                 }
             }
         };
+    }
+
+    private void setNextPlayer() {
+        int i = (int)playerNumberSlider.getValue();
+        final double MAX_FONT_SIZE = 35.0; // define max font size you need
+        final double REG_FONT_SIZE = 15.0; // define max font size you need
+        String name;
+        currentPlayer.setFont(new Font(REG_FONT_SIZE));
+        currentPlayerl.setFont(new Font(REG_FONT_SIZE));
+
+        if ( i == 1){
+
+        }else if (i==2){
+            if (currentPlayer == score1){
+                currentPlayer = score2;
+                currentPlayerl = score2l;
+            }else if (currentPlayer == score2) {
+                currentPlayer = score1;
+                currentPlayerl = score1l;
+            }
+        }else if (i == 3){
+            if (currentPlayer == score1){
+                currentPlayer = score2;
+                currentPlayerl = score2l;
+            }else if (currentPlayer == score2){
+                currentPlayer = score3;
+                currentPlayerl = score3l;
+            }else if (currentPlayer == score3) {
+                currentPlayer = score1;
+                currentPlayerl = score1l;
+            }
+        }else {
+
+            if (currentPlayer == score1) {
+                currentPlayer = score2;
+                currentPlayerl = score2l;
+            } else if (currentPlayer == score2) {
+                currentPlayer = score3;
+                currentPlayerl = score3l;
+            } else if (currentPlayer == score3) {
+                currentPlayer = score4;
+                currentPlayerl = score4l;
+            } else if (currentPlayer == score4) {
+                currentPlayer = score1;
+                currentPlayerl = score1l;
+            }
+        }
+        currentPlayer.setFont(new Font(MAX_FONT_SIZE));
+        currentPlayerl.setFont(new Font(MAX_FONT_SIZE));
+    }
+
+
+    private void increaseCurrentPlayerCounter(Label currentPlayer) {
+        int i = Integer.parseInt(currentPlayer.getText());
+        i++;
+        currentPlayer.setText(Integer.toString(i));
     }
 }
