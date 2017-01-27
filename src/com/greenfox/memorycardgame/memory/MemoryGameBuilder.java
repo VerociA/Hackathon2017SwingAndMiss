@@ -14,6 +14,7 @@ public final class MemoryGameBuilder {
     /* default values for at.technikum.ode.memory game */
     private final ImageFileProvider imageFileProvider;
     private int maxNumberOfPairs = Integer.MAX_VALUE;
+    private int numberOfPlayers;
 
     public MemoryGameBuilder(ImageFileProvider imageFileProvider) {
         this.imageFileProvider = imageFileProvider;
@@ -32,6 +33,11 @@ public final class MemoryGameBuilder {
         return this;
     }
 
+    public MemoryGameBuilder numberOfPlayers(int numberOfPlayers){
+        this.numberOfPlayers = numberOfPlayers;
+        return this;
+    }
+
     /**
      *
      * @return The MemoryGame built with the specified values (default or set via fluent api)
@@ -40,6 +46,6 @@ public final class MemoryGameBuilder {
         logger.debug(String.format("creating new MemoryGame with path %s limited to %d pairs"
                 , this.imageFileProvider.getImageRootPath()
                 , this.maxNumberOfPairs));
-        return new MemoryGame(this.imageFileProvider, this.maxNumberOfPairs);
+        return new MemoryGame(this.imageFileProvider, this.maxNumberOfPairs, this.numberOfPlayers);
     }
 }

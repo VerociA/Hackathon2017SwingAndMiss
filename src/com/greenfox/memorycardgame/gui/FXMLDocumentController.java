@@ -1,4 +1,4 @@
-package com.greenfox.twoscenetest;
+package com.greenfox.memorycardgame.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

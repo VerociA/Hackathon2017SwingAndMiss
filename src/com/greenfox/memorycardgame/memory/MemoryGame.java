@@ -1,6 +1,7 @@
 package com.greenfox.memorycardgame.memory;
 
 
+import javafx.scene.control.Label;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -19,11 +20,15 @@ import java.util.List;
 public final class MemoryGame {
     final static Logger logger = Logger.getLogger(MemoryGame.class);
     private List<File> memoryCards = new ArrayList<>();
+    private List<Label> playerCounters = new ArrayList<>();
 
     /* package local constructor */
-    MemoryGame(ImageFileProvider imageFileProvider, int maxNumberOfPairs) {
+    MemoryGame(ImageFileProvider imageFileProvider, int maxNumberOfPairs, int numberOfPlayers) {
         createMemoryCards(imageFileProvider, maxNumberOfPairs);
+//        createPlayerCounters(numberOfPlayers);
+
     }
+
 
 
     /**
@@ -77,4 +82,11 @@ public final class MemoryGame {
         Collections.shuffle(memoryCards);
         logger.debug("created memory card pairs: " + numberOfPairs);
     }
+//    private void createPlayerCounters(int numberOfPlayers) {
+//        for (int i = 0; i < numberOfPlayers; i++) {
+//            playerCounters.add(new Label("Player" + i));
+//        }
+//
+//    }
+
 }

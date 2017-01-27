@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -20,9 +21,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.DirectoryChooser;
 import javafx.util.StringConverter;
 import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 /**
  * Created by ${rudolfps} on 2017.01.26.
@@ -39,6 +42,9 @@ public final class MemoryGameController implements Initializable{
     Guess guess;
 
     @FXML
+    Slider playerNumberSlider;
+
+    @FXML
     Slider gameLevelSlider;
 
     @FXML
@@ -49,6 +55,9 @@ public final class MemoryGameController implements Initializable{
 
     @FXML
     Button chooseRootDirButton;
+
+    @FXML
+    GridPane playerCountersGrid;
 
     @Override
     /**
@@ -78,6 +87,7 @@ public final class MemoryGameController implements Initializable{
                 return null;
             }
         });
+
 
 
     }
@@ -114,12 +124,18 @@ public final class MemoryGameController implements Initializable{
         /* and remove all image views */
         memoryCardGrid.getChildren().clear();
 
-        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).buildMemoryGame();
+        /* and remove all player counters */
+        playerCountersGrid.getChildren().clear();
+
+
+//        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).buildMemoryGame();
+        memoryGame = new MemoryGameBuilder(fileProvider).maxNumberOfPairs((int)gameLevelSlider.getValue()).numberOfPlayers((int)playerNumberSlider.getValue()).buildMemoryGame();
 
         /* since the number of images depends on the selected game level we remove all imageViews first */
         /* there is room for optimization :-) */
         createImageViews(memoryGame.availableNumberOfCards());
         logger.debug("created new memory game with number of cards: " + memoryGame.availableNumberOfCards());
+        createPlayerCounters((int)playerNumberSlider.getValue());
         guess = new Guess();
     }
 
@@ -148,6 +164,12 @@ public final class MemoryGameController implements Initializable{
                 rowIndex = 0;
             }
         }
+    }
+    private void createPlayerCounters(int numberOfPlayers){
+        for (int i = 1; i < numberOfPlayers+1; i++) {
+            playerCountersGrid.add(new Label("P"+i),i,1);
+        }
+
     }
 
     /**
