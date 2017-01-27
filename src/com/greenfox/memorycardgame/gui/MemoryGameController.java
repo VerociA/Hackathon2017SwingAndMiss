@@ -41,6 +41,9 @@ public final class MemoryGameController implements Initializable{
     Guess guess;
 
     @FXML
+    Slider playerNumberSlider;
+
+    @FXML
     Slider gameLevelSlider;
 
     @FXML
@@ -80,6 +83,7 @@ public final class MemoryGameController implements Initializable{
                 return null;
             }
         });
+
 
 
     }

@@ -1,47 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
-
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Slider?>
-<VBox fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController" xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="3">
-    <HBox alignment="CENTER">
-        <Slider fx:id="gameLevelSlider">
-            <min>4</min>
-            <max>8</max>
-            <value>6</value>
-            <majorTickUnit>2</majorTickUnit>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-            <minorTickCount>0</minorTickCount>
-            <blockIncrement>2</blockIncrement>
-            <showTickMarks>true</showTickMarks>
-            <showTickLabels>true</showTickLabels>
-            <snapToTicks>true</snapToTicks>
-            <minWidth>300</minWidth>
-        </Slider>
-    </HBox>
-    <HBox spacing="10" alignment="CENTER">
-        <padding>
-
-            <Insets>
-                <bottom>5</bottom>
-                <top>25</top>
-                <left>5</left>
-                <right>5</right>
-            </Insets>
-
-        </padding>
-        <Button fx:id="restartGameButton" text="new game"/>
-        <Button fx:id="chooseRootDirButton" text="choose your pics" />
-    </HBox>
-
-
-
-    <GridPane fx:id="memoryCardGrid"
-               xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<VBox alignment="CENTER" prefHeight="165.0" prefWidth="224.0" spacing="3" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController">
+   <children>
+      <Label prefHeight="38.0" prefWidth="55.0" text="Players:" />
+      <HBox alignment="CENTER" prefHeight="113.0" prefWidth="224.0">
+         <children>
+            <Slider fx:id="playerNumberSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="60.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+         </children>
+      </HBox>
+       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="191.0">
+          <children>
+              <Slider fx:id="gameLevelSlider" prefHeight="38.0" prefWidth="157.0">
+                  <min>4</min>
+                  <max>8</max>
+                  <value>6</value>
+                  <majorTickUnit>2</majorTickUnit>
+      
+                  <minorTickCount>0</minorTickCount>
+                  <blockIncrement>2</blockIncrement>
+                  <showTickMarks>true</showTickMarks>
+                  <showTickLabels>true</showTickLabels>
+                  <snapToTicks>true</snapToTicks>
+                  <minWidth>157.0</minWidth>
+              </Slider>
+          </children>
+       </HBox>
+       <HBox alignment="CENTER" spacing="10">
+           <padding>
+   
+               <Insets>
+                   <bottom>5</bottom>
+                   <top>25</top>
+                   <left>5</left>
+                   <right>5</right>
+               </Insets>
+   
+           </padding>
+          <children>
+              <Button fx:id="restartGameButton" text="new game" />
+              <Button fx:id="chooseRootDirButton" text="choose your pics" />
+          </children>
+       </HBox>
+   
+   
+   
+       <GridPane fx:id="memoryCardGrid" alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
     </GridPane>
+   </children>
 </VBox>
-
