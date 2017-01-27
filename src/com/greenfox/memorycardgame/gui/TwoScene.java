@@ -58,6 +58,5 @@ import javafx.stage.Stage;
         else
             thestage.setScene(scene1);
     }
-
     }
 

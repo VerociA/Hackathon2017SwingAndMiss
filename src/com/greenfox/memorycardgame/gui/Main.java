@@ -19,8 +19,13 @@ public class Main extends Application {
         primaryStage.setTitle("Memory Game");
         primaryStage.setScene(new Scene(root, 500, 600));
         primaryStage.show();
-    }
 
+      /*  String musicFile = "retrogameboymusic.wav";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+*/
+    }
     public static void main(String[] args) {
         launch(args);
     }

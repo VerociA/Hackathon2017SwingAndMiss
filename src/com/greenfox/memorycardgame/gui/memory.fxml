@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.layout.GridPane?>
 
-
-<VBox alignment="CENTER" prefHeight="189.0" prefWidth="224.0" spacing="3" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController">
+<VBox alignment="CENTER" prefHeight="387.0" prefWidth="269.0" spacing="3" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.greenfox.memorycardgame.gui.MemoryGameController">
    <children>
-      <Label prefHeight="38.0" prefWidth="55.0" text="Players:" />
-      <HBox alignment="CENTER" prefHeight="113.0" prefWidth="224.0">
-         <children>
-            <Slider fx:id="playerNumberSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="60.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label prefHeight="27.0" prefWidth="129.0" text="MEMORY GAME" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+    </children>
+    <children>
+
+      <HBox alignment="CENTER" prefHeight="113.0" prefWidth="224.0" styleClass="label-bright" stylesheets="@DarkTheme.css">
+          <children>
+            <Slider fx:id="playerNumberSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="60.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="background" stylesheets="@DarkTheme.css" value="1.0" />
          </children>
       </HBox>
        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="191.0">
-          <children>
-              <Slider fx:id="gameLevelSlider" prefHeight="38.0" prefWidth="157.0">
+
+           <children>
+              <Slider fx:id="gameLevelSlider" prefHeight="38.0" prefWidth="157.0"   styleClass="label-bright" stylesheets="@DarkTheme.css">
                   <min>4</min>
                   <max>8</max>
                   <value>6</value>
@@ -47,8 +51,8 @@
    
            </padding>
           <children>
-              <Button fx:id="restartGameButton" text="new game" />
-              <Button fx:id="chooseRootDirButton" text="choose your pics" />
+              <Button fx:id="restartGameButton" defaultButton="true" styleClass="button" text="new game" textAlignment="JUSTIFY" />
+              <Button fx:id="chooseRootDirButton" styleClass="label-bright" text="choose your pics" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
           </children>
        </HBox>
    
